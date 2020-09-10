@@ -1,0 +1,20 @@
+1. This is a fuzzer with technologies of ML and compliation.
+
+2. Instrumentation
+    wrapper-gcc: handle some parameters (address sanitier), then forward to origin gcc
+    wrapper-as:  instrumentation some code on the position of "label, condition jump, call"
+
+    parameters:
+        --sanitier -- add guarder around of the memory; distinguish the UAF and OOB corruption
+
+3. Fuzzer
+    show the status including cov-paths based the instrumentation information
+    --fast -- change the strategy of fuzzer to improve the perfomance
+    --dynamic -- the prupose is to fuzz the so/dll file, so we need to generate the main entry to
+                fuzz the dynamic library:
+                    a. gather the functions of the dynamic library
+                    b. generate the reasonable call sequence with heuristic algorithm
+
+4. Windows Adapter
+    support all the characteriistics in windows
+
